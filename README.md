@@ -1,5 +1,5 @@
 # IETI-DP4MS_METIS
-This repository contains the code to generate the numerical data employed in the proceedings-paper "On Domain Decomposition for Magnetostatic Problems in 3D" of the ICCE2024 conference.
+This repository contains the code to generate the numerical data employed in the proceedings-paper "On Domain Decomposition for Magnetostatic Problems in 3D" of the ICCE2024 conference. This work can be considered as an extension of the paper "Tree-cotree-based tearing and interconnecting for 3D magnetostatics: A dual-primal approach" https://doi.org/10.1016/j.cma.2025.117737, for which the code is uploaded under [![DOI](https://zenodo.org/badge/917097656.svg)](https://doi.org/10.5281/zenodo.14678072).
 
 Our implementations are based on
   - NURBS-Package (version 1.4.3) M. Spink, D. Claxton, C. de Falco, R. Vazquez, The NURBS toolbox, http://octave.sourceforge.net/nurbs/index.html.
