@@ -4,12 +4,14 @@ close all;
 restoredefaultpath();
 addpath(genpath('../'));
 
+maxNumCompThreads(15);
+
 cm = readlines('cm.csv');
 cm = cm(1:end-1);
 
 degrees = 1:3;
-subdivs = round(2.^([0]));
-subdoms = 8:13;
+subdivs = round(2.^([1:0.5:3]));
+subdoms = 2:13;
 
 %% Test parameters
 runMETIS = false; % True requires a METIS installation
@@ -67,7 +69,7 @@ for dom=1:numel(subdoms)
         end
         decomp = metisDecomp(graphName,numSub,uval);
     else
-        fid = fopen(strcat('cube',num2str(numel(nrbarr)),'.txt.part.',num2str(numSub)),'r');
+        fid = fopen(strcat('partitions/cube',num2str(numel(nrbarr)),'.txt.part.',num2str(numSub)),'r');
         decomp = fscanf(fid,'%i');
     end
 
@@ -398,4 +400,4 @@ tab.cond = condEst;
 tab.iter = iter;
 tab.err = err_curl;
 
-writetable(tab,'decomp_data.csv');
+writetable(tab,'data/generated_data.csv');
