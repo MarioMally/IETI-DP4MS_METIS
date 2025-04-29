@@ -7,6 +7,6 @@ function [decomp] = metisDecomp(fileName,numRegions,uval)
     fid = fopen(resultName,'r');
     decomp = fscanf(fid,'%i');
     fclose(fid);
-    % system(strcat(['rm ',resultName]));
+    system(strcat(['rm ',resultName]));
     system(strcat(['rm ',fileName]));
 end

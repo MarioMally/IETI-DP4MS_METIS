@@ -11,7 +11,7 @@ cm = cm(1:end-1);
 
 degrees = 1:3;
 subdivs = round(2.^([1:0.5:3]));
-subdoms = 2:13;
+subdoms = 6:13;
 
 %% Test parameters
 runMETIS = false; % True requires a METIS installation

@@ -1,4 +1,4 @@
-function [gloGraph] = loc2glo_graph(graphCell,mp_space,mp_mul_space,offset)
+function [gloGraph] = loc2glo_graph(graphCell,mp_space,mp_mul_space)
     
     gloNodes = [1:mp_mul_space.ndof]';
 %     gloNodePrio = zeros(mp_mul_space.ndof,1);
@@ -30,31 +30,10 @@ function [gloGraph] = loc2glo_graph(graphCell,mp_space,mp_mul_space,offset)
 
         for j=1:numel(ids)
             id = gEdges(ids(j));
-            % Check for parabolic problem to identify intersection between conducting and nonconducting regions
-            if (gloWeight(id)==2 &&  G.Edges.Weight(j)==offset + 2) || (gloWeight(id)==offset+2 &&  G.Edges.Weight(j)==2)
-                gloWeight(id) = 1;
-            elseif (gloWeight(id)==4 &&  G.Edges.Weight(j)==offset + 4) || (gloWeight(id)==offset + 4 &&  G.Edges.Weight(j)==4)
-                gloWeight(id) = 3;
-            elseif (gloWeight(id)==7 &&  G.Edges.Weight(j)==offset + 7) || (gloWeight(id)==offset + 7 &&  G.Edges.Weight(j)==7)
-                gloWeight(id) = 6;
-            else
-                gloWeight(id) = min([gloWeight(id),G.Edges.Weight(j)]);
-            end
+            gloWeight(id) = min([gloWeight(id),G.Edges.Weight(j)]);
         end
-    end
 
-    % boolW1 = gloWeight==1;
-    % boolW2 = gloWeight==2;
-    % boolW3 = gloWeight==3;
-    % boolW4 = gloWeight==4;
-    % boolW6 = gloWeight==6;
-    % boolW7 = gloWeight==7;
-    % gloWeight(boolW1) = 2;
-    % gloWeight(boolW2) = 1;
-    % gloWeight(boolW3) = 4;
-    % gloWeight(boolW4) = 3;
-    % gloWeight(boolW6) = 7;
-    % gloWeight(boolW7) = 6;
+    end
     
     %% Set up graph from tables
     NodeTable = table();

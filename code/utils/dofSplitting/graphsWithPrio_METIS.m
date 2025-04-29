@@ -83,7 +83,7 @@ function [mp_strct] = graphsWithPrio_METIS(mp_strct,intrfc,boundarySidesCell,dec
     end
     
     %% Compute global graph
-    gloGraph = loc2glo_graph(patchGraphs,mp_strct.space_mp,mp_strct.space_mul_mp,0);
+    gloGraph = loc2glo_graph(patchGraphs,mp_strct.space_mp,mp_strct.space_mul_mp);
 
     if plotting
         ddcolormap = ["#34a8dc", "#a25264", "#85c79c", "#cda19a", "#abd533", "#c85221", "#8886e9", "#12d388", "#4b7359", "#eb67f9", "#f5bd5e", "#cc156d", "#ab7b05", "#63e118", "#fd2c3b"];
